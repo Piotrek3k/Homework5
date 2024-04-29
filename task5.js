@@ -1,28 +1,29 @@
 const customShuffle = require("./task3.js")
 const chunkArray = require("./task2.js")
+
 const measureArrayPerformance = async (array, func) => {
-    const start = Date.now() 
-    await func(array)
-    
+    // function to monitor performance of function done on the given array
+    const start = Date.now() // measuring time using Date.now()
+    await func(array)   
     const end = Date.now()
     return(end - start)
 }
-const mapping = (array) => {
+const mapping = (array) => { // simple mappings function
     return array.map(x => x * 2);
 };
 
-const filtering = (array) => {
+const filtering = (array) => {  // simple filtering function
     return array.filter(x => x > 4);
 };
 
-const including = (array) => {
+const including = (array) => {  // simple including function
     return array.includes(-1);
 };
 
-const chunking = (array) => {
+const chunking = (array) => {   // chunking function from task2
     return chunkArray(array,10);
 };
-const shuffling = (array) => {
+const shuffling = (array) => {  // shuffling function from task3
     return customShuffle(array);
 };
 
